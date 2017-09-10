@@ -21,9 +21,11 @@ Elegimos trabajar con el set de datos de AirBnb, plataforma que presenta una ofe
 * Paris
 
 4) Propuesta de Consultas:
+	* Vivienda con mayor precio promedio (disponible)
+	* Vivienda con menor precio promedio (disponible)
 	- Usuario con mas viviendas en una ciudad
 	- Usuario con viviendas en más países
-	- Vivienda con más reviews
+	* Vivienda con más reviews
 	- Vivienda que se arrendó mas veces
 	- Viviendas disponibles entre un rango de fechas
 	- Vivienda más barata disponible entre un rango de fechas
@@ -41,5 +43,9 @@ Elegimos trabajar con el set de datos de AirBnb, plataforma que presenta una ofe
 	- La vivienda con reviews más negativos (reviews con palabras 'unpleasant', 'worst', 'don't recommend', 'dissapointed')
 	- Usuarios que se arrienden casas mutuamente
 	- Numero de viviendas por barrio (aproximado)
+
+5) Dificultades:
+	- Comentarios con ',' en algunos de sus campos entorpecen el split
+	- saltos de linea se cuentan como una nueva tupla, dificultando el análisis
 
 
