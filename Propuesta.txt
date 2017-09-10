@@ -1,0 +1,45 @@
+Proyecto Big Data: AirBnb
+
+1) Introducción
+
+Elegimos trabajar con el set de datos de AirBnb, plataforma que presenta una oferta de al rededor de 2.000.000 de propiedades activas en 192 países y 33.000 ciudades. A la fecha se han registrado al rededor de 100.000.000 de reservas a través de la plataforma, lo cual es constituido por miles de reservas cada mes.
+
+(https://es.wikipedia.org/wiki/Airbnb)
+
+2) Tipos de Datos:
+
+* Listings: Viviendas Disponibles en la Aplicación
+* Calendar: Estado de las Viviendas en un determinado rango de tiempo.
+* Reviews: Indica cuando se registró un Review para una determinada vivienda.
+
+3) Ciudades Seleccionadas:
+
+* Amsterdam
+* Dublin
+* Hong Kong
+* New York
+* Paris
+
+4) Propuesta de Consultas:
+	- Usuario con mas viviendas en una ciudad
+	- Usuario con viviendas en más países
+	- Vivienda con más reviews
+	- Vivienda que se arrendó mas veces
+	- Viviendas disponibles entre un rango de fechas
+	- Vivienda más barata disponible entre un rango de fechas
+	- Arriendo histórico que generó más ingresos para el arrendatario
+	- Comparativa de precios entre los 5 países
+	- Demanda en fechas festivas
+	- Vivenda más barata con el mejor rating
+	- Vivienda más cara con el peor rating
+	- Promedio del valor de cada cama por ciudad
+	- Promedio del numero de baños por cantidad de personas
+	- El usuario que realizó mas reviews (reservas)
+	- El par de usuarios con más similitud en las residencias reservadas
+	- El usuario que realizó reservas en más países
+	- El usuario más desconforme con sus reservas (reviews con palabras 'unpleasant', 'worst', 'don't recommend', 'dissapointed')
+	- La vivienda con reviews más negativos (reviews con palabras 'unpleasant', 'worst', 'don't recommend', 'dissapointed')
+	- Usuarios que se arrienden casas mutuamente
+	- Numero de viviendas por barrio (aproximado)
+
+
