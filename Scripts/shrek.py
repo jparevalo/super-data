@@ -1,7 +1,7 @@
 import csv
 import sys
 
-out_file = open("out.csv", "w")
+out_file = open(sys.argv[2], "w")
 dic = {}
 with open(sys.argv[1]) as csvfile:
     reader = csv.reader(csvfile)
