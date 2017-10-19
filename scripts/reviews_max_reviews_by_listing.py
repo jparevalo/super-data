@@ -8,9 +8,8 @@ import csv
 class UsersCount(MRJob):
     def mapper_userid(self, _, line):
         #listing_data =  csv.reader(line)
-        rating_data = line.split(",")
+        rating_data = line.split(",",5)
         # check if it's aviable
-       	print rating_data 
         if rating_data[0] != "listing_id":
                 yield [rating_data[0], 1 ]
 

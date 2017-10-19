@@ -9,9 +9,9 @@ class UsersCount(MRJob):
     def mapper_userid(self, _, line):
         calendar_data = line.split(",")
 	# check if it's aviable
-	if calendar_data[2] != "f" and calendar_data[3] != "price":
-		price = calendar_data[3].split("$")[1]
-        	yield [calendar_data[0], float(price) ]
+	if calendar_data[2].strip("'") != "f" and 'price' not in calendar_data[3] and calendar_data[3].strip().strip("'") != '':
+		price = calendar_data[3].split("$")[1].strip("'")
+        	yield [calendar_data[0].strip("'"), float(price) ]
 
     def reducer(self, key, values):
         #values2 = [value for value in values if value != ""]

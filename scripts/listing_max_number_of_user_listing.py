@@ -7,11 +7,8 @@ import csv
 
 class UsersCount(MRJob):
     def mapper_userid(self, _, line):
-	listing_data =  csv.reader(line)
-        #listing_data = line.split(",")
-	host_id_idx = 19
-        # check if it's aviable
-	print listing_data
+        listing_data = line.split(",")
+	host_id_idx = 2
         if listing_data[host_id_idx] != "host_id":
                 yield [listing_data[host_id_idx], 1 ]
 
