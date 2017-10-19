@@ -24,13 +24,13 @@ class UsersCount(MRJob):
 	
         yield ['AVG',[suma/total ,key]]
 
-    def max_reducer(self, stat, values):
+    def min_reducer(self, stat, values):
         TEMP = [values]
-        yield ['MAX',max(values)]
+        yield ['MIN',min(values)]
 
     def steps(self):
         return [MRStep(mapper=self.mapper_userid, reducer=self.reducer),
-            MRStep(reducer=self.max_reducer)]
+            MRStep(reducer=self.min_reducer)]
 
 
 if __name__ == '__main__':
