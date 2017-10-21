@@ -6,7 +6,7 @@ import itertools
 import csv
 
 class UsersCount(MRJob):
-    def mapper_userid(self, _, line):
+    def mapper_listingid(self, _, line):
         #listing_data =  csv.reader(line)
         rating_data = line.split(",",5)
         # check if it's aviable
@@ -21,10 +21,9 @@ class UsersCount(MRJob):
         yield [stat,max(values)]
 
     def steps(self):
-        return [MRStep(mapper=self.mapper_userid, reducer=self.reducer),
+        return [MRStep(mapper=self.mapper_listingid, reducer=self.reducer),
             MRStep(reducer=self.max_reducer)]
 
 
 if __name__ == '__main__':
     UsersCount.run()
-

@@ -7,10 +7,11 @@ import csv
 
 class UsersCount(MRJob):
     def mapper_userid(self, _, line):
-        listing_data = line.split(",")
-	host_id_idx = 2
-        if listing_data[host_id_idx] != "host_id":
-                yield [listing_data[host_id_idx], 1 ]
+        #listing_data =  csv.reader(line)
+        rating_data = line.split(",",5)
+        # check if it's aviable
+        if rating_data[3] != "reviewer_id":
+                yield [rating_data[3], 1 ]
 
     def reducer(self, key, values):
         yield ['MAX',[sum(values), key]]
