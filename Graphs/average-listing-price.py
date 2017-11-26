@@ -6,7 +6,7 @@ import sys
 import csv
 
 D = {}
-prices = [1.17825, 1.17825, 1.17825, 0.128144, 1] #Euro, Euro, Euro, USD, HKD
+prices = [1.17825, 1.17825, 1.17825, 0.128144, 1] #Euro, Euro, Euro, HKD, USD
 total = int(sys.argv[1])
 for i in range(total):
     total_sum = 0
