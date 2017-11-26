@@ -9,7 +9,7 @@ with open(sys.argv[1]) as csvfile:
 	_id = row[0]
 	_rooms = row[55]
 	_price = row[60].replace("$","")
-	_number_of_rev = row[76]
+	_number_of_rev = row[94]
 	col = _id+","+_rooms+","+_price+","+_number_of_rev
         #stripped = [col.replace('\n', ' ') for col in row]	
         out_file.write(col +'\n' )
