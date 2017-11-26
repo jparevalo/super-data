@@ -12,8 +12,9 @@ class UsersCount(MRJob):
         bedrooms = calendar_data[1]
         price = calendar_data[2]
         reviews = calendar_data[3]
-        if reviews != "reviews" and bedrooms == "1":
-            yield ["REVIEWS", float(reviews)]
+        if reviews != "reviews" and reviews != "" and bedrooms == "1":
+            if float(reviews) < 30:
+                yield ["REVIEWS", float(reviews)]
 
     def reducer(self, key, values):
         suma = 0
@@ -21,7 +22,7 @@ class UsersCount(MRJob):
         for value in values:
             suma += value
             total += 1
-        yield ['AVG RENTS', int(suma/total)]
+        yield ['AVG RENTS', float(suma/total)]
 
     def steps(self):
         return [MRStep(mapper=self.mapper_userid, reducer=self.reducer)]
