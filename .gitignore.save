@@ -1,0 +1,4 @@
+# Downloaded AirBnb Data
+*.csv.gz
+.csv
+*.csv#
