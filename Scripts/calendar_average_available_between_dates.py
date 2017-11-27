@@ -6,8 +6,8 @@ import itertools
 import csv
 from datetime import datetime
 
-START_DATE = datetime.strptime("2017-11-07", "%Y-%m-%d")
-END_DATE = datetime.strptime("2017-11-14", "%Y-%m-%d")
+START_DATE = datetime.strptime("2017-12-29", "%Y-%m-%d")
+END_DATE = datetime.strptime("2018-01-04", "%Y-%m-%d")
 class UsersCount(MRJob):
     def mapper_listingid(self, _, line):
         calendar_data = line.split(",",3)
@@ -29,13 +29,18 @@ class UsersCount(MRJob):
                     total += float(date[0])
                     yield ['TOTAL PRICE',[total ,listing_id]]
 
-    def min_reducer(self, stat, values):
-        yield ['CHEAPEST AVAILABLE LISTING',min(values)]
+    def avg_reducer(self, stat, values):
+	total = 0
+	sum = 0
+	for v in values:
+		sum += v[0]
+		total += 1
+        yield ['AVG',round(sum/total,2)]
 
     def steps(self):
         return [MRStep(mapper=self.mapper_listingid, reducer=self.reducer_dates_by_listing),
                 MRStep(reducer=self.reducer_listings_available_with_total_price),
-                MRStep(reducer=self.min_reducer)]
+                MRStep(reducer=self.avg_reducer)]
 
 
 if __name__ == '__main__':

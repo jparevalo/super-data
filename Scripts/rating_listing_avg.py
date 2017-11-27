@@ -22,20 +22,12 @@ class UsersCount(MRJob):
 	    suma += value
 	    total +=1
 	    
-	yield ["Avg1", suma / total]
- 
-    def reducer2(self, key, values):
-	suma = 0
-	total = 0
-	for value in values:
-	    suma += value
-	    total +=1
-        yield ['Avg2', suma / total ]
+	yield ["Avg1", ((suma / total)/10) * 5]
+
 	 
     def steps(self):
         #return [MRStep(mapper=self.mapper_movie)]
-	return [MRStep(mapper=self.mapper_movie, reducer=self.reducer),
-		MRStep(reducer = self.reducer2)]
+	return [MRStep(mapper=self.mapper_movie, reducer=self.reducer)]
 
  
  
